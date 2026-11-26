@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ruba's Love story ❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;
+ font-family:'Cairo',sans-serif;
+ color:white;
+ background:radial-gradient(circle at top,#54205f,#170d2b 65%,#090716);
+ min-height:100vh;
+ overflow-x:hidden;
+}
+.heart{
+ position:fixed;
+ bottom:-30px;
+ color:#ff8acb;
+ animation:float 9s linear infinite;
+ pointer-events:none;
+ z-index:0;
+}
+@keyframes float{
+ to{transform:translateY(-110vh) rotate(360deg);opacity:0}
+}
+header{text-align:center;padding:35px 15px 15px;position:relative}
+h1{
+ font-size:clamp(30px,7vw,55px);
+ color:#ffb5df;
+ text-shadow:0 0 25px #ff48b5;
+ margin:10px 0;
+}
+.subtitle{color:#e9c8e9;font-size:14px}
+.container{max-width:750px;margin:auto;padding:15px;position:relative;z-index:2}
+.panel{
+ background:rgba(255,255,255,.07);
+ border:1px solid rgba(255,174,221,.35);
+ border-radius:25px;
+ padding:25px 18px;
+ text-align:center;
+ box-shadow:0 0 35px #a32c7b22;
+ backdrop-filter:blur(12px);
+}
+.screen{display:none;animation:appear .7s}
+.screen.active{display:block}
+@keyframes appear{
+ from{opacity:0;transform:translateY(20px)}
+ to{opacity:1;transform:translateY(0)}
+}
+.big-heart{
+ font-size:85px;
+ filter:drop-shadow(0 0 20px #ff69bd);
+ animation:pulse 1.7s infinite;
+}
+@keyframes pulse{50%{transform:scale(1.13)}}
+button{
+ border:1px solid #ffb2dd;
+ background:linear-gradient(135deg,#ff55ae,#9b46c5);
+ color:white;
+ padding:13px 24px;
+ border-radius:30px;
+ font-family:inherit;
+ font-size:15px;
+ font-weight:bold;
+ margin:8px;
+ cursor:pointer;
+ box-shadow:0 0 18px #e94ca855;
+}
+button:active{transform:scale(.96)}
+.rooms{
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:13px;
+ margin-top:22px;
+}
+.room{
+ padding:20px 8px;
+ background:linear-gradient(145deg,#6e326c,#301c51);
+ border:1px solid #d98acb66;
+ border-radius:20px;
+ cursor:pointer;
+ transition:.3s;
+}
+.room:hover{transform:translateY(-5px);box-shadow:0 0 22px #ff71c5}
+.room span{font-size:38px;display:block}
+.room h3{font-size:15px;margin:8px 0 0}
+.message{
+ background:#ffffff0d;
+ border-right:3px solid #ff8bc8;
+ padding:16px;
+ border-radius:12px;
+ line-height:2.2;
+ text-align:right;
+ margin:15px 0;
+}
+.door{
+ font-size:75px;
+ margin:15px;
+ filter:drop-shadow(0 0 15px #ff69bd);
+}
+.counter{
+ font-size:24px;
+ color:#ffb4df;
+ font-weight:900;
+}
+.small{font-size:12px;color:#d9b9da}
+input{
+ width:85%;padding:13px;border-radius:15px;
+ border:1px solid #ff9dd4;background:#ffffff12;
+ color:white;font-family:inherit;text-align:center;
+}
+input::placeholder{color:#e3b7d7}
+footer{text-align:center;padding:25px;color:#cda4c9;font-size:12px}
+</style>
+</head>
+
+<body>
+
+<header>
+ <div style="font-size:35px">💗 ✨ 💗</div>
+ <h1>RUBA'S LOVE MUSEUM</h1>
+ <div class="subtitle">A little universe made only for you, Ruba</div>
+</header>
+
+<div class="container">
+
+<!-- HOME -->
+<section class="screen active panel" id="home">
+ <div class="big-heart">❤️</div>
+ <h2>أهلاً فيكي يا رُبى</h2>
+ <p>اليوم ما رح تشوفي شي عادي...</p>
+ <p>رح تشوفي عالم صغير، كل زاوية فيه بتحكي عنكِ وعنّا.</p>
+ <p style="color:#ffb4df">جاهزة تكتشفي شو مخبّيلك حبيبك؟</p>
+ <button onclick="start()">افتحي  ✨</button>
+</section>
+
+<!--  -->
+<section class="screen panel" id="museum">
+ <h2>💗 Welcome to our world</h2>
+ <p>اختاري أي وحدة وبلّشي رحلتك...</p>
+ <div class="rooms">
+  <div class="room" onclick="openRoom('begin')">
+   <span>🌷</span><h3>بداية قصتنا</h3>
+  </div>
+  <div class="room" onclick="openRoom('reasons')">
+   <span>💌</span><h3>ليش بحبك؟</h3>
+  </div>
+  <div class="room" onclick="openRoom('future')">
+   <span>🏡</span><h3>مستقبلنا</h3>
+  </div>
+  <div class="room" onclick="openRoom('memories')">
+   <span>🌌</span><h3>عالمنا الخاص</h3>
+  </div>
+  <div class="room" onclick="openRoom('secret')">
+   <span>🔐</span><h3>الغرفة السرية</h3>
+  </div>
+  <div class="room" onclick="openRoom('final')">
+   <span>💍</span><h3>آخر مفاجأة</h3>
+  </div>
+ </div>
+ <button onclick="backHome()">العودة للبداية</button>
+</section>
+
+<!-- BEGIN -->
+<section class="screen panel" id="begin">
+ <div class="door">🌷</div>
+ <h2>كل شي بلّش بيوم...</h2>
+ <div class="counter">25 • 04 • 2025</div>
+ <div class="message">
+ بتعرفي شو أحلى شي صار بحياتي؟
+ إني التقيت فيكي... ومن هيداك اليوم صار عندي شخص
+ بقدر سمّيه بيتي، راحتي، وفرحتي.
+ <br>ما كنت بعرف إنو يوم واحد ممكن يغيّر كل هالقد.
+ </div>
+ <p>ومن وقتها قصتنا بعدها عم تنكتب ❤️</p>
+ <button onclick="backMuseum()">رجوع </button>
+</section>
+
+<!-- REASONS -->
+<section class="screen panel" id="reasons">
+ <div class="door">💌</div>
+ <h2>1000 سبب لأحبك</h2>
+ <p>اكبسي وشوفي سبب جديد كل مرة ❤️</p>
+ <div class="big-heart" style="font-size:55px">💕</div>
+ <h3 id="reason">لأنك إنتِ رُبى...</h3>
+ <button onclick="nextReason()">سبب تاني ✨</button>
+ <button onclick="backMuseum()">رجوع</button>
+</section>
+
+<!-- FUTURE -->
+<section class="screen panel" id="future">
+ <div class="door">🏡</div>
+ <h2>Our Future Together</h2>
+ <div class="message">
+ بتخيّل بيتنا الصغير...
+ <br>ضحكتك بكل زاوية.
+ <br>قهوة الصبح سوا.
+ <br>سهراتنا وحكاياتنا.
+ <br>وأيام كتيرة نكبر فيها سوا.
+ </div>
+ <p>مش طالب حياة مثالية...</p>
+ <h3 style="color:#ffb4df">بدي حياة فيها إنتِ ❤️</h3>
+ <button onclick="backMuseum()">رجوع</button>
+</section>
+
+<!-- MEMORIES -->
+<section class="screen panel" id="memories">
+ <div class="door">🌌</div>
+ <h2>Our Little Universe</h2>
+ <p>في عالمنا في أشياء ما حدا بيفهمها غيرنا...</p>
+ <div class="message">
+ نظرة بتفهمني بلا حكي.
+ <br>ضحكة بتنسّيني كل شي.
+ <br>زعل منرجع منتصالح بعده.
+ <br>وتفاصيل صغيرة بتعمل أجمل ذكريات.
+ </div>
+ <div style="font-size:50px">🌙✨❤️✨🌙</div>
+ <p>إنتِ أجمل تفصيل بقصتي.</p>
+ <button onclick="backMuseum()">رجوع</button>
+</section>
+
+<!-- SECRET -->
+<section class="screen panel" id="secret">
+ <div class="door">🔐</div>
+ <h2>Secret Room</h2>
+ <p>في رسالة ما رح تقدري تشوفيها إلا إذا عرفتي كلمة السر...</p>
+ <input id="password" placeholder="اكتبي كلمة السر هنا">
+ <br>
+ <button onclick="unlock()">افتحي الباب 🔑</button>
+ <div id="secretMessage" style="display:none">
+  <div class="big-heart">💖</div>
+  <h2>إنتِ سر سعادتي</h2>
+  <div class="message">
+  يمكن ما بقدر كل يوم عبّرلك عن كل اللي بقلبي،
+  بس بدي تعرفي إنك غالية عليّي بطريقة
+  أكبر من كل الكلمات.
+  <br>هيدي الغرفة إلك وحدك يا رُبى.
+  </div>
+ </div>
+ <button onclick="backMuseum()">رجوع</button>
+</section>
+
+<!-- FINAL -->
+<section class="screen panel" id="final">
+ <div class="big-heart">💍</div>
+ <h2>To My Forever Ruba</h2>
+ <p>وصلتي لآخر شي...</p>
+ <div class="message" id="finalText">
+ يا رُبى...
+ <br>إذا في أمنية بدي حققها،
+ فهي إنو ضلّني شوف ابتسامتك كل يوم.
+ <br>بدي نعيش قصتنا، ونصنع ذكريات جديدة،
+ ونضل نختار بعض مهما مرق الوقت.
+ <br><br>
+ بحبك كتيرررر، كل يوم بحبك اكتر، ورح ضل حبك لآخر العمر❤️❤️
+ <br><br>
+ <strong style="color:#ffacd9">إلى رُبى... من محمد ❤️</strong>
+ </div>
+ <div style="font-size:50px">🎆💗🎆💗🎆</div>
+ <h3>THE END? ... NEVER ❤️</h3>
+ <button onclick="backMuseum()">ارجعي عيشي الرحلة من جديد</button>
+</section>
+
+</div>
+
+<footer>
+ Made with endless love ❤️<br>
+ M + R • Forever
+</footer>
+
+<script>
+const reasons=[
+"لأنك إنتِ رُبى، وهيدا لحالو سبب كافي ❤️",
+"لأن ضحكتك بتغيّر يومي كله.",
+"لأن صوتك بيخليني ارتاح.",
+"لأن وجودك بحياتي نعمة.",
+"لأنك بتخلّي أبسط اللحظات حلوة.",
+"لأنك الشخص اللي بدي شاركه كل شي.",
+"لأن عيونك فيها عالم بحب ضل فيه.",
+"لأنك أحلى صدفة وأجمل اختيار.",
+"لأن قلبي اختارك من بين الكل.",
+"لأن المستقبل أحلى لما بتكوني فيه."
+];
+let ri=0;
+
+function show(id){
+ document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+ document.getElementById(id).classList.add('active');
+ window.scrollTo(0,0);
+}
+function start(){show('museum')}
+function backHome(){show('home')}
+function backMuseum(){show('museum')}
+function openRoom(id){show(id)}
+function nextReason(){
+ ri=(ri+1)%reasons.length;
+ document.getElementById('reason').innerText=reasons[ri];
+}
+function unlock(){
+ let p=document.getElementById('password').value.trim().toLowerCase();
+ if(p==='ruba'){
+  document.getElementById('secretMessage').style.display='block';
+  document.getElementById('password').style.display='none';
+  document.getElementById('secret').querySelector('button').style.display='none';
+ }else{
+  alert('مش هيدي كلمة السر يا رُبى 😘 جربي Ruba');
+ }
+}
+
+// Floating hearts
+function createHeart(){
+ const h=document.createElement('div');
+ h.className='heart';
+ h.innerHTML=['♥','♡','💗','✨'][Math.floor(Math.random()*4)];
+ h.style.left=Math.random()*100+'%';
+ h.style.fontSize=(15+Math.random()*22)+'px';
+ h.style.animationDuration=(6+Math.random()*6)+'s';
+ document.body.appendChild(h);
+ setTimeout(()=>h.remove(),12000);
+}
+setInterval(createHeart,500);
+</script>
+</body>
+</html>
